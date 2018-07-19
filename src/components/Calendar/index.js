@@ -13,7 +13,7 @@ const moment = extendMoment(Moment);
 
 class Calendar extends Component {
   render() {
-    const { classes, month, dateRange } = this.props;
+    const { classes, month, dateRange, code } = this.props;
     return (
       <div className={classes.calendar}>
         <div className={classes.innerContainer}>
@@ -22,7 +22,7 @@ class Calendar extends Component {
             <MonthLabel month={month} />
           </div>
         </div>
-        <WeekList month={month} dateRange={dateRange} />
+        <WeekList month={month} dateRange={dateRange} code={code} />
       </div>
     );
   }

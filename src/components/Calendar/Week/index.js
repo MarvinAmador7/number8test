@@ -2,12 +2,14 @@ import React from "react";
 import moment from "moment";
 import injectSheet from "react-jss";
 
+import isHolyday from '../../../helpers/holydays';
+
 import styles from "./styles";
 
 // Components
 import Day from "../Day";
 
-const Week = ({ classes, month, date, dateRange }) => {
+const Week = ({ classes, month, date, dateRange, code }) => {
   let days = [];
   const datesRange = new Array(7);
 
@@ -27,6 +29,7 @@ const Week = ({ classes, month, date, dateRange }) => {
       date: date,
       inDateRange: inDateRange(date),
       isWeekend: isWeekend(moment(date).weekday()),
+      isHolyDay: isHolyday(date.format(), code)
     };
 
     days.push(<Day day={day} />);

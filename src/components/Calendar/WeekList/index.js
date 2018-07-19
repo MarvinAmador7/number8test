@@ -6,7 +6,7 @@ import { getWeekDate } from "../../../helpers/calendar";
 // Components
 import Week from "../Week";
 
-const WeekList = ({ month, dateRange }) => {
+const WeekList = ({ month, dateRange, code }) => {
   let weeks = [];
   let weekCounter = 0;
   let date = getWeekDate(month);
@@ -20,6 +20,7 @@ const WeekList = ({ month, dateRange }) => {
         date={date.clone()}
         month={month}
         dateRange={dateRange}
+        code={code}
       />,
     );
     date.add(1, "week");

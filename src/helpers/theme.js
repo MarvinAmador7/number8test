@@ -3,6 +3,7 @@ export default {
     weekend: "#ffee88",
     week: "#a7b000 ",
     disabled: "#bdbdbd",
+    holyday: "#d14",
   },
   flex: (items = "center", content = "center", direction = "row") => {
     return {

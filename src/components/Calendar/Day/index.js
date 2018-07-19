@@ -5,13 +5,11 @@ import styles from "./styles";
 
 const Day = ({
   classes,
-  day: { isWeekend, date, isCurrentMonth, isToday, number },
-}) => {
-  return (
+  day: { isHolyDay, isWeekend, date, isCurrentMonth, isToday, number },
+}) => (
     <span key={date.toString()} className={classes.container}>
       {number}
     </span>
   );
-};
 
 export default injectSheet(styles)(Day);

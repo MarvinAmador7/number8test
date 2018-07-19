@@ -28,8 +28,12 @@ class Calendars extends Component {
     });
   };
 
+  onCodeChange = ({ target: { value } }) => {
+    this.setState({ code: value });
+  };
+
   render() {
-    const { startDate, endDate } = this.state;
+    const { startDate, endDate, code } = this.state;
     const customRange = moment.range(moment(startDate), moment(endDate));
     const selectedMonths = Array.from(customRange.by("month"));
     return (
@@ -46,8 +50,14 @@ class Calendars extends Component {
           name="endDate"
           onChange={this.onChange}
         />
+        <input
+          placeholder="Country code"
+          type="string"
+          name="code"
+          onChange={this.onCodeChange}
+        />
         {selectedMonths.map(month => (
-          <Calendar month={month} dateRange={customRange} />
+          <Calendar month={month} dateRange={customRange} code={code} />
         ))}
       </Fragment>
     );

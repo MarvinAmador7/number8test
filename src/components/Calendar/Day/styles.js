@@ -6,9 +6,11 @@ export default ({ colors, fonts, flex }) => ({
     cursor: "pointer",
     color: ({ day: { inDateRange } }) =>
       !inDateRange ? colors.disabled : "black",
-    background: ({ day: { isCurrentMonth, inDateRange, isWeekend } }) => {
+    background: ({ day: { isCurrentMonth, inDateRange, isWeekend, isHolyDay } }) => {
       if (!inDateRange) {
         return colors.disabled;
+      } else if (isHolyDay) {
+        return colors.holyday;
       }
       return isWeekend ? colors.weekend : colors.week;
     },
